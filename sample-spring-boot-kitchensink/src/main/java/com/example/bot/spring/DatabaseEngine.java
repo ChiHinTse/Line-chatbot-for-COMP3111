@@ -32,13 +32,15 @@ public class DatabaseEngine {
 			isr = new InputStreamReader(
                     this.getClass().getResourceAsStream(FILENAME));
 			br = new BufferedReader(isr);
-			String sCurrentLine;
+			String sCurrentLine=br.readLine();
 			
-			while (result == null && (sCurrentLine = br.readLine()) != null) {
+			while (result == null && sCurrentLine != null) {
+				log.info(sCurrentLine);
 				String[] parts = sCurrentLine.split(":");
 				if (text.toLowerCase().equals(parts[0].toLowerCase())) {
 					result = parts[1];
 				}
+				sCurrentLine=br.readLine();
 			}
 		} catch (IOException e) {
 			log.info("IOException while reading file: {}", e.toString());
