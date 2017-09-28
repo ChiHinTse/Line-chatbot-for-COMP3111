@@ -18,7 +18,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		String result = null;
 		try {
 			Connection connection = getConnection();
-			PreparedStatement stmt = connection.prepareStatement("SELECT keyword, response FROM botresponse");
+			PreparedStatement stmt = connection.prepareStatement("SELECT keyword, response FROM botresponse;");
 			ResultSet re = stmt.executeQuery();
 
 			while (re.next()) {
